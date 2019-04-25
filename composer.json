@@ -1,0 +1,44 @@
+{
+    "name": "linshunwei/laravel-xunsearch",
+    "description": "Laravel XunSearch engine.",
+    "keywords": [
+        "xunsearch", "XunSearch Engine", "Laravel Scout engine", "Laravel"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "linshunwei",
+            "email": "lsw.nba@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "Laravel/Scout": "^6.0",
+        "hightman/xunsearch": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Linshunwei\\XunSearchLaravel\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5",
+        "vlucas/phpdotenv": "^2.5"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Linshuwei\\XunSearchLaravel\\XunSearchServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "v1.0.0"
+        }
+    }
+}
