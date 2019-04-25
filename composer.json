@@ -1,10 +1,9 @@
 {
     "name": "linshunwei/laravel-xunsearch",
-    "description": "Laravel XunSearch engine.",
+    "description": "中文全文搜索 xunsearch",
     "keywords": [
         "xunsearch", "XunSearch Engine", "Laravel Scout engine", "Laravel"
     ],
-    "type": "library",
     "license": "MIT",
     "authors": [
         {
