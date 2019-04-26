@@ -112,12 +112,12 @@ class Article extends Model implements XunSearchContract
 
 例如设定 `id` 字段为 `self::XUNSEARCH_TYPE_NUMERIC`，在 `id` 大于 `20` 小于等于 `60` 的范围内搜索 `keyword`
 ```
-Blog::search('keyword')->range('id', 20, 60)->get();
+Article::search('keyword')->range('id', 20, 60)->get();
 ```
 
 例如设定 `id` 字段为 `self::XUNSEARCH_TYPE_NUMERIC`，在 `id` 倒序排序搜索 `keyword`
 ```
-Blog::search('keyword')->orderBy('id', 'asc')->get(); 
+Article::search('keyword')->orderBy('id', 'asc')->get(); 
 ```
 
 字段的索引 `index` 和分词器 `tokenizer` 的设置效果，在 [XunSearch 官方文档][xun_search_index] 查看。
