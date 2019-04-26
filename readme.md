@@ -60,7 +60,7 @@ XUNSEARCH_SERVER_HOST=127.0.0.1
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
 
-class Blog extends Model
+class Article extends Model
 {
     use Searchable;
 ```
@@ -73,7 +73,7 @@ use Laravel\Scout\Searchable;
 use Linshunwei\XunSearchLaravel\Contracts\XunSearch as XunSearchContract;
 use Linshunwei\XunSearchLaravel\XunSearchTrait;
 
-class Blog extends Model implements XunSearchContract
+class Article extends Model implements XunSearchContract
 {
     use Searchable， XunSearchTrait;
     
@@ -110,9 +110,14 @@ class Blog extends Model implements XunSearchContract
 
 `XunSearchTrait` 中给 Scout 的 `Builder` 注册了 `range` 方法进行区间检索。除了 `title` 和 `body` 特殊字段， XunSearch 默认设定字段为 `string`，需要进行区间检索的字段，要设为 `numeric` 或者 `date` 才能正常检索。
 
-例如设定 `id` 字段为 `self::XUNSEARCH_TYPE_NUMERIC`，在 `id` 大于 `20` 小于等于 `60` 的范围内搜索 `word`
+例如设定 `id` 字段为 `self::XUNSEARCH_TYPE_NUMERIC`，在 `id` 大于 `20` 小于等于 `60` 的范围内搜索 `keyword`
 ```
-Blog::search('word')->range('id', 20, 60)->get();
+Blog::search('keyword')->range('id', 20, 60)->get();
+```
+
+例如设定 `id` 字段为 `self::XUNSEARCH_TYPE_NUMERIC`，在 `id` 倒序排序搜索 `keyword`
+```
+Blog::search('keyword')->orderBy('id', 'asc')->get(); 
 ```
 
 字段的索引 `index` 和分词器 `tokenizer` 的设置效果，在 [XunSearch 官方文档][xun_search_index] 查看。

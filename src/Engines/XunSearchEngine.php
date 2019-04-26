@@ -142,13 +142,10 @@ class XunSearchEngine extends Engine
 				$search->addRange($key, $value['from'], $value['to']);
 			});
 
-		if (isset($builder->orders)) {
-			$sort_arr = [];
+		if (isset($builder->orders)) 
 			collect($builder->orders)->map(function ($value, $key) use ($search) {
-				$sort_arr[$value] = strtolower($key) == 'asc' ? false : true;
+				$search->setSort($value['column'],strtolower($value['direction']) == 'asc' ? false : true);
 			});
-			$sort_arr && $search->setMultiSort($sort_arr);
-		}
 
 		return ['docs' => $search->search(), 'total' => $search->getLastCount()];
 	}
