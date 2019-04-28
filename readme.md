@@ -20,7 +20,7 @@ composer require linshunwei/xunsearch-laravel
 ```php
 'providers' => [
     //...
-    linshunwei\XunSearchLaravel\XunSearchServiceProvider::class,
+    Linshunwei\XunSearchLaravel\XunSearchServiceProvider::class,
     //...
 ],
 ```
